@@ -5,3 +5,6 @@ output
 data
 chroma_db
 chroma_assign_db
+tax_db
+tax_new
+tests
