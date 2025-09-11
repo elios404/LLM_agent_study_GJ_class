@@ -11,6 +11,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.example.rest.domain.User;
 import com.example.rest.exception.UserNotFoundException;
 import com.example.rest.service.UserService;
+
+import jakarta.validation.Valid;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,12 +52,22 @@ public class UserController {
 
 
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) { //클라이언트에서 오는 json을 객체로 변환 + @Valid를 통해서 유효성 체크
         User savedUser = service.save(user);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedUser.getId()).toUri(); //현재의  uri 경로를 기반으로 새로운 uri 경로를 만들어줌.
         
         return ResponseEntity.created(location).build(); //created를 통해서 201로 상태코드 리턴
     }
     
+    // @DeleteMapping("/users/{id}")
+    // public User deleteUser(@PathVariable int id) {
+    //     User user = service.deleteById(id);
+
+    //     if(user == null){
+    //         throw new UserNotFoundException(String.format("ID[%s] not found", id));
+    //     }
+
+    //     return user;
+    // }
     
 }

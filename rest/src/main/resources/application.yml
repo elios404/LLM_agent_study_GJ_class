@@ -1,2 +1,13 @@
 server:
     port: 8081
+
+spring:
+    datasource:
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url : jdbc:oracle:thin:@localhost:1521:xe
+        username : agent
+        password : 1234
+
+mybatis:
+    mapper-locations: classpath:mapper/*.xml #mapper 폴더 안에 모든 xml 파일들
+    type-aliases-package: com.example.rest.domain #xml 안에서 결과를 매핑하는 객체들을 사용하기 위해서
