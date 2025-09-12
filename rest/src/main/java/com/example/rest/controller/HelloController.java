@@ -6,7 +6,7 @@ import com.example.rest.domain.HelloWorldBean;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+// import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController // 객체만 리턴해도 responseBody 이용해서 json으로 만들어서 리턴해줌?
