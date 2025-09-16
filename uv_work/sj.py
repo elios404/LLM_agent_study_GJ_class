@@ -104,13 +104,13 @@ def generate_nonfunctional_req(state: ReqState) -> ReqState:
     req_names_list = state['req_names']
     req_purpose_list = state['req_purpose']
     req_function_list = state['req_function']
-    # req_process_list = state['req_process']
+    req_process_list = state['req_process']
 
     for names, purpose, function, process in zip(
         req_names_list, 
         req_purpose_list, 
         req_function_list, 
-        # req_process_list
+        req_process_list
     ):
         # retriever를 각 req_name에 맞게 호출합니다.
         # proposal_context = retriever.invoke(names)
@@ -120,7 +120,7 @@ def generate_nonfunctional_req(state: ReqState) -> ReqState:
             "req_names": names,
             "req_purpose": purpose,
             "req_function": function,
-            # "req_process": process,
+            "req_process": process,
             # "proposal_context": proposal_context
         })
         
