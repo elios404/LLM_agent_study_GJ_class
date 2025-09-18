@@ -2,7 +2,7 @@ package com.example.board.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.board.domain.BoardVO;
@@ -27,27 +27,23 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void register(BoardVO board) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'register'");
+    public int register(BoardVO board) {
+        return mapper.insert(board);
     }
 
     @Override
     public BoardVO get(Long bno) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        return mapper.read(bno);
     }
 
     @Override
     public boolean modify(BoardVO board) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'modify'");
+        return mapper.update(board) == 1;
     }
 
     @Override
     public boolean remove(Long bno) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        return mapper.delete(bno) == 1;
     }
     
 }

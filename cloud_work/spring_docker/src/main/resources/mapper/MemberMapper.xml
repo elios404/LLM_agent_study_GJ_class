@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.spring_docker.MemberMapper"> <!--실제 코드에서 인터페이스가 있는 부분 경로 + 파일 이름-->
+
+        <select id="selectAllMembers" resultType="com.example.spring_docker.MemberVO">
+            select * from members
+        </select>
+    
+</mapper>

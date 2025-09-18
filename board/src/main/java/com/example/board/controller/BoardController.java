@@ -9,7 +9,16 @@ import com.example.board.service.BoardService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 
 
@@ -32,9 +41,34 @@ public class BoardController {
     }
 
     @GetMapping("/list")
-    public List<BoardVO> getList() {
-        return service.getList();
+    public ResponseEntity<List<BoardVO>> getList() {
+        return new ResponseEntity<List<BoardVO>>(service.getList(), HttpStatus.OK);
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<String> register(@RequestBody BoardVO board) {
+        int insertCount = service.register(board);
+
+        return insertCount == 1 ? new ResponseEntity<String>("success", HttpStatus.OK) : new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @GetMapping("get/{bno}")
+    public ResponseEntity<BoardVO> getBoard(@PathVariable Long bno) {
+        return new ResponseEntity<BoardVO>(service.get(bno), HttpStatus.OK);
+    }
+    
+    @PutMapping("/modify/{bno}")
+    public ResponseEntity<String> modify(@PathVariable Long bno, @RequestBody BoardVO board) {
+        board.setBno(bno);
+
+        return service.modify(board) ? new ResponseEntity<String>("success", HttpStatus.OK) : new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @DeleteMapping("/remove/{bno}")
+    public ResponseEntity<String> remove(@PathVariable Long bno) {
+        return service.remove(bno) ? new ResponseEntity<String>("success", HttpStatus.OK) : new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    
     
     
 }

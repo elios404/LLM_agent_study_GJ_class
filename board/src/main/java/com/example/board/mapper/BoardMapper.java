@@ -10,4 +10,12 @@ import com.example.board.domain.BoardVO;
 public interface BoardMapper {
     
     public List<BoardVO> getList();
+
+    public int insert(BoardVO vo);
+
+    public BoardVO read(Long bno);
+
+    public int update(BoardVO board);
+
+    public int delete(Long bno);
 }

@@ -8,7 +8,7 @@ public interface BoardService {
     
     public List<BoardVO> getList();
 
-    public void register(BoardVO board);
+    public int register(BoardVO board);
 
     public BoardVO get(Long bno);
 

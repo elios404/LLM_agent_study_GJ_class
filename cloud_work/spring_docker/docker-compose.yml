@@ -1,0 +1,14 @@
+version: '3'
+services:
+  oracle11g:
+    image: wilxim/oracle-xe-11g
+    container_name: oracle11g
+    ports:
+      - 1521:1521
+      - 8080:8080
+
+  springdocker2:
+    image: elios404/springdocker
+    build: .
+    ports:
+      - 8081:8081
