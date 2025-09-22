@@ -8,6 +8,8 @@ public interface BoardService {
     
     public List<BoardVO> getList();
 
+    public List<BoardVO> getList(int pageNum, String type, String keyword);
+
     public int register(BoardVO board);
 
     public BoardVO get(Long bno);

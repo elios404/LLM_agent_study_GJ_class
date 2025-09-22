@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.board.domain.BoardVO;
+import com.example.board.domain.Criteria;
 import com.example.board.mapper.BoardMapper;
 
 @Service
@@ -24,6 +25,11 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<BoardVO> getList() {
         return mapper.getList();
+    }
+
+    @Override
+    public List<BoardVO> getList(int pageNum, String type, String keyword) {
+        return mapper.getListWithPaging(new Criteria(pageNum, type, keyword));
     }
 
     @Override

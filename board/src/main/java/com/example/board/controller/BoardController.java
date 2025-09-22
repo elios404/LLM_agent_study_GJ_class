@@ -19,9 +19,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-
-
-
 @RestController
 @RequestMapping("/board/*")
 public class BoardController {
@@ -39,6 +36,17 @@ public class BoardController {
     public String hello() {
         return "Hello!";
     }
+
+    // @GetMapping("/list/{pageNum}")
+    // public ResponseEntity<List<BoardVO>> listPaging(@PathVariable int pageNum) {
+    //     return new ResponseEntity<List<BoardVO>>(service.getList(pageNum), HttpStatus.OK);
+    // }
+
+    @GetMapping("/list/{pageNum}/{type}/{keyword}")
+    public ResponseEntity<List<BoardVO>> listPagingSearch(@PathVariable int pageNum, @PathVariable String type, @PathVariable String keyword) {
+        return new ResponseEntity<List<BoardVO>>(service.getList(pageNum, type, keyword), HttpStatus.OK);
+    }
+    
 
     @GetMapping("/list")
     public ResponseEntity<List<BoardVO>> getList() {

@@ -8,5 +8,9 @@
         <select id="selectAllMembers" resultType="com.example.spring_docker.MemberVO">
             select * from members
         </select>
-    
+
+        <select id="getMember" resultType="com.example.spring_docker.MemberVO">
+                select * from members where id = #{id}
+        </select>
+        
 </mapper>

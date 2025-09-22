@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board.mapper.ReplyMapper"> <!--실제 코드에서 인터페이스가 있는 부분 경로 + 파일 이름-->
+
+       <select id="getReplyList" resultType="ReplyVO">
+                select * from tbl_reply where bno = #{bno}
+       </select>
+
+       <select id="getReply" resultType="ReplyVO">
+                select * from tbl_reply where rno = #{rno}
+       </select>
+
+       <insert id="insertReply">
+                <selectKey keyProperty="rno" order="BEFORE" resultType="long">
+                        select seq_reply.nextval from dual
+                </selectKey>
+                insert into tbl_reply(rno, bno, reply, replyer, replyDate, updateDate)
+                values(#{rno}, #{bno}, #{reply}, #{replyer}, sysdate, sysdate)
+       </insert>
+
+       <update id="updateReply">
+                update tbl_reply
+                set reply = #{reply}, replyer = #{replyer}, updateDate = sysdate
+                where rno = #{rno}
+       </update>
+
+       <delete id="deleteReply">
+                delete from tbl_reply
+                where rno = #{rno}
+       </delete>
+    
+</mapper>
+
+
+
+

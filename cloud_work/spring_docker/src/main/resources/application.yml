@@ -1,13 +1,13 @@
 server:
-    port: 8081
+    port: 80
 
 
 spring:
     datasource:
         driver-class-name: oracle.jdbc.driver.OracleDriver
-        url: jdbc:oracle:thin:@localhost:1521:xe
-        username: agent
-        password: 1234
+        url: jdbc:oracle:thin:@aws-kosa.cdu95zcqyzsu.ap-northeast-2.rds.amazonaws.com:1521:ORCL
+        username: admin
+        password: kosa1234
 
 mybatis:
     mapper-locations: classpath:mapper/*.xml

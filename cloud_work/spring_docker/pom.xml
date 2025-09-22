@@ -99,7 +99,7 @@
 				<configuration>
 					<images>
 						<image>
-							<name>elios404/springdocker</name> <!--docker의 이미지 이름-->
+							<name>elios404/springdocker-server</name> <!--docker의 이미지 이름-->
 							<build>
 								<dockerFileDir>${basedir}</dockerFileDir> <!--Dockerfile 주소-->
 							</build>
