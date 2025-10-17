@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function kosa() {
+            alert("kosa!");
+        }
+    </script>
+    <script type="text/javascript" src="commom.js"></script> <!--외부 파일 불러오기-->
+</head>
+<body>
+    <h1>Hello</h1>
+    <input type="button" value="button" onclick="kosa()"> <!--헤더에 함수 정의-->
+    <input type="button" value="button" onclick="kosa2()"> <!--바디에 함수 정의-->
+    <input type="button" value="button" onclick="kosa3()"> <!--외부 파일에 함수 정의-->
+    <script>
+        function kosa2() {
+            alert("kosa2!");
+        }
+    </script>
+</body>
+</html>

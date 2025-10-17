@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var data = "Global data";
+
+        var obj1 = {data: 'obj1 data'}
+        var obj2 = {data: 'obj2 data'}
+
+        function func() {
+            console.log(this.data); // 일반 함수 안의 this는 window
+        }
+
+        func(); // "Global data" 출력
+
+        // call, apply => 파라미터로 this 결정!
+        func.call(obj1); //실행시 obj1이 this -> "ojb1 data" 출력
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

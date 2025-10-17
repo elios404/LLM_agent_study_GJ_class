@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        //1. 일반 함수 안에서 this는 window 객체이다.
+        var data = 10; // var로 선언된 전역 변수는 window 안에  속함
+
+        function func() { //일반함수
+            this.data = 20; //window.data == this.data
+            data = 30; // 선언된 위치에 상위 data를 가져온다. lexical 선언
+
+            console.log('1. data: ' + data); // 30
+            console.log('2. this.data: ' + this.data); // 30
+            console.log('3. window.data: ' + window.data); // 30
+        }
+
+        func();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

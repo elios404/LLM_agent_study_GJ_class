@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+	function showPic(obj){
+		const source = obj.getAttribute('href');
+		const placeholder = document.getElementById('placeholder');
+
+		const title = obj.getAttribute('title');
+		const description = document.getElementById('description');
+
+		placeholder.setAttribute('src',source);
+		description.innerHTML = title;
+	}
+	
+	
+</script>
+</head>
+<body>
+	<h1>gallery</h1>
+	<ul>
+		<li>
+			<a href="images/fireworks.jpg" title="A fireworks dispaly" 
+					onclick="showPic(this); return false;">Fireworks</a> <!--showPic(this)에서 this는 a 태그, return false는 HTML 기본 이벤트를 중지-->
+					<!-- 기본 이벤트는 a tag의 페이지 이동, form의 submit을 통한 데이터 제출 -->
+		</li>
+		<li>
+			<a href="images/coffee.jpg" title="A cup of black coffee" 
+					onclick="showPic(this); return false;">Coffee</a>
+		</li>
+		<li>
+			<a href="images/rose.jpg" title="A red red rose" 
+					onclick="showPic(this); return false;">Rose</a>
+		</li>
+		<li>
+			<a href="images/bigben.jpg" title="The famous clock" 
+					onclick="showPic(this); return false;">Big Ben</a>
+		</li>
+	</ul>
+	<img id="placeholder" src="images/placeholder.gif" alt="myImage"/>
+	<p id="description">Choose an image</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

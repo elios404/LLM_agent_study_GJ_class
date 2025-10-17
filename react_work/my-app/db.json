@@ -1,0 +1,19 @@
+{
+  "posts": [
+    {
+      "title": "title",
+      "body": "body",
+      "id": 1
+    },
+    {
+      "title": "hello",
+      "body": "good bye",
+      "id": 2
+    },
+    {
+      "title": "I'm tired",
+      "body": "Super Tired",
+      "id": 3
+    }
+  ]
+}

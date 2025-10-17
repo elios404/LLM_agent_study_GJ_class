@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        //1. 리터럴 객체, 생성자 함수, 프로토타입 안에서의 this. 는 해당 객체이다.
+        var data = 10; // var로 선언된 전역 변수는 window 안에  속함
+
+        function MyClass() {
+            this.data = 0;
+        }
+
+        MyClass.prototype.method1 = function() {
+            this.data = 20;
+            data = 30;
+
+            console.log('1. data: ' + data); // 30
+            console.log('2. this.data: ' + this.data); // 20
+            console.log('3. window.data: ' + window.data); // 30
+        }
+
+        const m1 = new MyClass();
+        m1.method1();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

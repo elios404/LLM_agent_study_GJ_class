@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button id="btn"> button!! </button>
+    <script type="text/javascript">
+        //3. 이벤트 핸들러 함수 안에서의 this는 이벤트 대상 객체이다.
+        var data = 10; // var로 선언된 전역 변수는 window 안에  속함
+
+        const btn = document.getElementById('btn');
+
+        btn.onclick = function(){
+            this.data = 20; //
+            data = 30; // 선언된 위치에 상위 data를 가져온다. lexical 선언
+
+            console.log('1. data: ' + data); // 30
+            console.log('2. this.data: ' + this.data); // 20
+            console.log('3. window.data: ' + window.data); // 30
+        }
+
+    </script>
+</body>
+</html>

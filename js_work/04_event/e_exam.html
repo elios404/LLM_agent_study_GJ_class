@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result"></div>
+    <input type="button" value="버튼1" onclick="doProcess()">&nbsp;&nbsp;&nbsp;
+    <input type="button" value="버튼2" id="btn">
+
+    <script type="text/javascript">
+        function doProcess() {
+            // div 안에 새로 span 태그를 추가하고자 함.
+            const result = document.getElementById('result'); //html의 div 태크 요소에 접근하기
+            result.innerHTML = '<span>이벤트 결과</span>'; // 이 내용을 div에 추가하고자 함.
+        }
+
+        function doProcess2() {
+            alert('이벤트 결과 2');
+        }
+
+        const btn = document.getElementById('btn'); // 버튼2 태그 요소 가져오기 , header에 넣으면 아직 body를 읽기 않았기 때문에 작동 안함.
+        // btn.onclick = doProcess2;
+        // btn.onclick = doProcess; // 하나의 아이디에 여러 이벤트를 넣고싶으면 -> 한 개 밖에 실행안됨.
+
+        // 여러 이벤트를 실행시키고 싶으면
+        // 이벤트 리스너 방식 (addEventListener)
+        btn.addEventListener('click', doProcess2, false); // click이 발생할 때
+        btn.addEventListener('click', doProcess, false); // 2개 이상의 이벤트를 이런 방식으로걸어야 한다.
+
+
+        //헤더에 넣고 싶다면, window 로드, 읽기가 끝난 다음에 실행되도록
+        // window.onload = function() {
+        //     const btn = document.getElementById('btn'); 
+        //     btn.onclick = doProcess2;
+        // }
+    </script>
+</body>
+</html>
